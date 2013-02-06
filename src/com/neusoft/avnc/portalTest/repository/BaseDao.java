@@ -1,25 +1,22 @@
 package com.neusoft.avnc.portalTest.repository;
 
-import javax.annotation.Resource;
-import javax.sql.DataSource;
 
-import org.springframework.jdbc.core.support.JdbcDaoSupport;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 
-
-public class BaseDao extends JdbcDaoSupport{
+/**
+ * Dao基类
+ * <br>Title:Dao基类
+ * <br>Description:实现Dao共通方法
+ * <br>Author:曲锐(qur@neusoft.com)
+ * <br>Date:2013-2-6
+ * @param <T>
+ */
+public class BaseDao<Table>{
 	/**
-	 * 注入dataSource
-	 * @param dataSource
+	 * Hibernate会话工厂
 	 */
-	@Resource(name="dataSource")
-	public void setSqlMapClientForOverRied(DataSource dataSource){
-        super.setDataSource(dataSource);
-    }
-	/**
-	 * 取得最后插入的自增字段值
-	 * @return Integer 
-	 */
-	public Integer getLastInsertId(){
-		return this.getJdbcTemplate().queryForInt("select last_insert_id()");
-	}
+	@Autowired
+	protected SessionFactory sessionFactory;
+	
 }
