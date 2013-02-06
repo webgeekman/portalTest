@@ -1,3 +1,5 @@
 eclipse.preferences.version=1
+encoding//WebContent/theme/default/common/header.jsp=UTF-8
+encoding//WebContent/theme/default/user.jsp=UTF-8
 encoding//src/com/neusoft/avnc/portalTest/repository/BaseDao.java=UTF-8
 encoding/<project>=UTF-8

@@ -14,8 +14,14 @@ import com.neusoft.avnc.portalTest.service.IUserService;
 public class UserController extends BaseController{
 	private IUserService userService;
 	
-	@RequestMapping("/user")
-	public ModelAndView user(HttpServletRequest request){
+	@RequestMapping("/editUser")
+	public ModelAndView editUser(HttpServletRequest request){
+		
+		return new ModelAndView(appProperties.getTheme()+"/editUser","user",new User());
+	}
+	
+	@RequestMapping("/saveUser")
+	public ModelAndView saveUser(HttpServletRequest request){
 		ModelMap modelMap = new ModelMap();
 		System.out.println("User controller run!!!");
 		User user = new User();
